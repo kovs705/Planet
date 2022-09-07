@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9yx-vh-ne0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -9,6 +9,35 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Bookmarks-->
+        <scene sceneID="44B-ie-iCl">
+            <objects>
+                <tableViewController title="Tabs" id="7GA-hg-iQd" userLabel="Bookmarks" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="l5n-Nv-UOQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="lRJ-w2-Xng">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lRJ-w2-Xng" id="SGc-Bm-NAt">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7GA-hg-iQd" id="C5H-8O-tCP"/>
+                            <outlet property="delegate" destination="7GA-hg-iQd" id="pe4-zx-4H5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="tcy-UJ-rAb"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YSz-CB-24a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="899" y="442"/>
+        </scene>
         <!--Planet browser-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -17,26 +46,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" showsBookmarkButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AUP-gU-OZb">
-                                <rect key="frame" x="20" y="88" width="374" height="51"/>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" showsBookmarkButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AUP-gU-OZb" userLabel="SB">
+                                <rect key="frame" x="10" y="88" width="394" height="51"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <scopeButtonTitles>
                                     <string>Title</string>
                                     <string>Title</string>
                                 </scopeButtonTitles>
                             </searchBar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="omR-xS-r60">
-                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZ0-T8-cOd">
+                                <rect key="frame" x="0.0" y="139" width="414" height="674"/>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="omR-xS-r60" userLabel="TB">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem title="Item" style="plain" id="lua-1h-bi9" userLabel="Back">
+                                    <barButtonItem style="plain" id="lua-1h-bi9" userLabel="Back">
                                         <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large" renderingMode="template"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                     </barButtonItem>
                                     <barButtonItem width="25" style="plain" systemItem="fixedSpace" id="S9x-z0-ZnG" userLabel="Spacer (fixed)">
                                         <color key="tintColor" systemColor="labelColor"/>
                                     </barButtonItem>
-                                    <barButtonItem title="Item" style="plain" id="vux-h3-AuX" userLabel="Forward">
+                                    <barButtonItem style="plain" id="vux-h3-AuX" userLabel="Forward">
                                         <imageReference key="image" image="chevron.forward" catalog="system" symbolScale="large" renderingMode="template"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                     </barButtonItem>
@@ -52,17 +83,71 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="omR-xS-r60" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5hb-jR-XPS"/>
                             <constraint firstItem="AUP-gU-OZb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="64o-gO-anP"/>
+                            <constraint firstItem="nZ0-T8-cOd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9rX-fv-ae7"/>
                             <constraint firstItem="AUP-gU-OZb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JVS-Fz-u9H"/>
-                            <constraint firstItem="AUP-gU-OZb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="JoQ-p9-XBu"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AUP-gU-OZb" secondAttribute="trailing" constant="20" id="iXy-OP-ExK"/>
+                            <constraint firstItem="AUP-gU-OZb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="JoQ-p9-XBu"/>
+                            <constraint firstItem="nZ0-T8-cOd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VT2-iF-Qxc"/>
+                            <constraint firstItem="omR-xS-r60" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="cAE-EY-G0P"/>
+                            <constraint firstItem="omR-xS-r60" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="hXi-AQ-NI3"/>
+                            <constraint firstItem="nZ0-T8-cOd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="28" id="hyq-UF-1Kt"/>
+                            <constraint firstItem="AUP-gU-OZb" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" constant="-10" id="iXy-OP-ExK"/>
+                            <constraint firstItem="omR-xS-r60" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="o2h-n5-3Qy"/>
+                            <constraint firstItem="nZ0-T8-cOd" firstAttribute="top" secondItem="AUP-gU-OZb" secondAttribute="bottom" id="qA2-hs-m1A"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Planet browser" id="rR2-6a-dci"/>
+                    <navigationItem key="navigationItem" title="Planet browser" id="rR2-6a-dci">
+                        <barButtonItem key="rightBarButtonItem" id="hZs-Kf-5KK" userLabel="Tabs">
+                            <imageReference key="image" image="rectangle.on.rectangle" catalog="system" symbolScale="large" renderingMode="hierarchical-single">
+                                <hierarchicalColors>
+                                    <color systemColor="labelColor"/>
+                                    <color systemColor="secondaryLabelColor"/>
+                                    <color systemColor="tertiaryLabelColor"/>
+                                </hierarchicalColors>
+                            </imageReference>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <segue destination="YfY-qP-ahp" kind="showDetail" id="nzd-8C-Px6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="7GA-hg-iQd" kind="show" id="OdG-hv-CGL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="83.705357142857139"/>
+            <point key="canvasLocation" x="114" y="84"/>
+        </scene>
+        <!--Tabs-->
+        <scene sceneID="Fiz-nL-NVV">
+            <objects>
+                <tableViewController title="Tabs" id="YfY-qP-ahp" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="eq5-Hu-IIZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WrR-Wk-gEh">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WrR-Wk-gEh" id="pfX-JB-WMm">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YfY-qP-ahp" id="EqX-y3-jeE"/>
+                            <outlet property="delegate" destination="YfY-qP-ahp" id="RNW-fO-Xqy"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="tup-aa-P3A"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uwf-K3-7Lb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="899" y="-235"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VfZ-zz-w4r">
@@ -80,17 +165,24 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aO9-Uf-Lc3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.840579710144929" y="83.705357142857139"/>
+            <point key="canvasLocation" x="-762" y="84"/>
         </scene>
     </scenes>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="chevron.forward" catalog="system" width="96" height="128"/>
+        <image name="rectangle.on.rectangle" catalog="system" width="128" height="97"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
