@@ -17,6 +17,10 @@
 		4E143FDD28C9362100B94EBF /* PlanetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E143FDC28C9362100B94EBF /* PlanetTests.swift */; };
 		4E143FE728C9362100B94EBF /* PlanetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E143FE628C9362100B94EBF /* PlanetUITests.swift */; };
 		4E143FE928C9362100B94EBF /* PlanetUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E143FE828C9362100B94EBF /* PlanetUITestsLaunchTests.swift */; };
+		4EAE2B1228CBB14200ED5770 /* TabsTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE2B1128CBB14200ED5770 /* TabsTBC.swift */; };
+		4EAE2B1428CBB16200ED5770 /* BookmarksTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE2B1328CBB16200ED5770 /* BookmarksTBC.swift */; };
+		4EAE2B1728CBB45F00ED5770 /* TabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE2B1628CBB45F00ED5770 /* TabCell.swift */; };
+		4EAE2B1928CBB47C00ED5770 /* BookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE2B1828CBB47C00ED5770 /* BookmarkCell.swift */; };
 		B6559CD0F39DD03A0EA2125C /* Pods_PlanetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A95150BF721CDF89B673A8C8 /* Pods_PlanetTests.framework */; };
 		DA7743E036B6225BE8ACDDF0 /* Pods_Planet_PlanetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1E38B8014054D2B4353ED8 /* Pods_Planet_PlanetUITests.framework */; };
 		F85433A75E05195CD3FE00F3 /* Pods_Planet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF147554FD3A5BF85F7EBDB1 /* Pods_Planet.framework */; };
@@ -55,6 +59,10 @@
 		4E143FE228C9362100B94EBF /* PlanetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E143FE628C9362100B94EBF /* PlanetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetUITests.swift; sourceTree = "<group>"; };
 		4E143FE828C9362100B94EBF /* PlanetUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4EAE2B1128CBB14200ED5770 /* TabsTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsTBC.swift; sourceTree = "<group>"; };
+		4EAE2B1328CBB16200ED5770 /* BookmarksTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksTBC.swift; sourceTree = "<group>"; };
+		4EAE2B1628CBB45F00ED5770 /* TabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCell.swift; sourceTree = "<group>"; };
+		4EAE2B1828CBB47C00ED5770 /* BookmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCell.swift; sourceTree = "<group>"; };
 		591C09E5BB625BFBB98CF242 /* Pods-Planet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Planet.release.xcconfig"; path = "Target Support Files/Pods-Planet/Pods-Planet.release.xcconfig"; sourceTree = "<group>"; };
 		A95150BF721CDF89B673A8C8 /* Pods_PlanetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlanetTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1E38B8014054D2B4353ED8 /* Pods_Planet_PlanetUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Planet_PlanetUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,8 +141,9 @@
 			children = (
 				4E143FC228C9361E00B94EBF /* AppDelegate.swift */,
 				4E143FC428C9361E00B94EBF /* SceneDelegate.swift */,
-				4E143FC628C9361E00B94EBF /* ViewController.swift */,
+				4EAE2B1528CBB17400ED5770 /* Views */,
 				4E143FC828C9361E00B94EBF /* Main.storyboard */,
+				4EAE2B1A28CBB48200ED5770 /* Cells */,
 				4E143FCE28C9362000B94EBF /* Assets.xcassets */,
 				4E143FD028C9362000B94EBF /* LaunchScreen.storyboard */,
 				4E143FD328C9362000B94EBF /* Info.plist */,
@@ -158,6 +167,25 @@
 				4E143FE828C9362100B94EBF /* PlanetUITestsLaunchTests.swift */,
 			);
 			path = PlanetUITests;
+			sourceTree = "<group>";
+		};
+		4EAE2B1528CBB17400ED5770 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4E143FC628C9361E00B94EBF /* ViewController.swift */,
+				4EAE2B1128CBB14200ED5770 /* TabsTBC.swift */,
+				4EAE2B1328CBB16200ED5770 /* BookmarksTBC.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4EAE2B1A28CBB48200ED5770 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4EAE2B1628CBB45F00ED5770 /* TabCell.swift */,
+				4EAE2B1828CBB47C00ED5770 /* BookmarkCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		E1AEC07595ACE0664445AC54 /* Frameworks */ = {
@@ -410,9 +438,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E143FC728C9361E00B94EBF /* ViewController.swift in Sources */,
+				4EAE2B1228CBB14200ED5770 /* TabsTBC.swift in Sources */,
+				4EAE2B1728CBB45F00ED5770 /* TabCell.swift in Sources */,
+				4EAE2B1928CBB47C00ED5770 /* BookmarkCell.swift in Sources */,
 				4E143FC328C9361E00B94EBF /* AppDelegate.swift in Sources */,
 				4E143FC528C9361E00B94EBF /* SceneDelegate.swift in Sources */,
 				4E143FCD28C9361E00B94EBF /* Planet.xcdatamodeld in Sources */,
+				4EAE2B1428CBB16200ED5770 /* BookmarksTBC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
