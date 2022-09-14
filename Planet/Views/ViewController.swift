@@ -65,17 +65,35 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
         errorLabel.numberOfLines = 0
     }
     
+    // MARK: - WKWebView functions:
+    func loadWebsite(_ input: String, _ isUrlDomain: Bool) {
+        var encodedURL: String = input
+        if (isUrlDomain) {
+            if encodedURL.starts(with: "http://") {
+                encodedURL = String(encodedURL.dropFirst(7))            // "deletes" this http://
+            }
+            else if encodedURL.starts(with: "https://") {
+                encodedURL = String(encodedURL.dropFirst(8))
+            }
+            
+            encodedURL = "https://" + encodedURL.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+            
+        } else {
+            encodedURL = "https://www.google.com/search?dcr=0&q=" + encodedURL.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        }
+    }
+
     
     @IBAction func goBack(_ sender: UIBarButtonItem) {
-        
+        currentWebView.goBack()
     }
     
     @IBAction func goForward(_ sender: UIBarButtonItem) {
-        
+        currentWebView.goForward()
     }
     
     @IBAction func refresh(_ sender: UIBarButtonItem) {
-        
+        currentWebView.reload()
     }
     
 
