@@ -81,8 +81,78 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
         } else {
             encodedURL = "https://www.google.com/search?dcr=0&q=" + encodedURL.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         }
+        
+        // actual URL request
+        let url: URL = URL(string: "\(encodedURL)")!
+        let urlRequest: URLRequest = URLRequest(url: url)
+        
+        // load request:
+        currentWebView.load(urlRequest)
+        hideWebViewError()
+        searchBar.text = encodedURL
     }
-
+    
+    // MARK: - WebView errors
+    
+    func displayWebViewError(_ error: String) {
+        errorLabel.text = error
+        webView.addSubview(errorView)
+        webView.addSubview(errorLabel)
+    }
+    
+    func hideWebViewError() {
+        errorView.removeFromSuperview()
+        errorLabel.removeFromSuperview()
+    }
+    
+    // MARK: - WKNavigationDelegate
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        print("Commited")
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        // last part of loading the request:
+        print("Finished")
+        
+        updateNavigationToolbarButtons()
+    }
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        // calls when the LOADING process BEGINS
+        print("Startet provisional navigation func")
+    }
+    
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        displayWebViewError(error.localizedDescription)
+        updateNavigationToolbarButtons()
+    }
+    
+    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        let cred = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+        completionHandler(.useCredential, cred)
+    }
+    
+    // MARK: UISearchBar delegate
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder() // hides keyboard
+        
+        let input: String = (searchBar.text?.trimmingCharacters(in: .whitespaces))!
+        if (!input.isEmpty) { // if input of the searchBar isn't empty
+            if input.hasSuffix(".com") || input.hasSuffix(".com/") || input.hasSuffix(".tv") || input.hasSuffix(".tv/") {
+                // if input has some of these suffixes:
+                loadWebsite(input, true)
+            } else {
+                loadWebsite(input, false)
+            }
+        }
+    }
+    
+    
+    // MARK: - Toolbar functions and buttons
+    func updateNavigationToolbarButtons() {
+        
+    }
     
     @IBAction func goBack(_ sender: UIBarButtonItem) {
         currentWebView.goBack()
