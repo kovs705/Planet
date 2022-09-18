@@ -89,7 +89,7 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
         // load request:
         currentWebView.load(urlRequest)
         hideWebViewError()
-        searchBar.text = encodedURL
+        searchBar.text = encodedURL.lowercased()
     }
     
     // MARK: - WebView errors
