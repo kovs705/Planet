@@ -39,6 +39,7 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
     // MARK: - Configuration functions:
     func configureSearchBar() {
         searchBar.delegate = self
+        searchBar.autocapitalizationType = .none
     }
     
     func configureWebView() {
@@ -151,15 +152,37 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
     
     // MARK: - Toolbar functions and buttons
     func updateNavigationToolbarButtons() {
+        // this function updates the toolbar and its buttons, depending on web pages and where is the user:
         
+        // forward:
+        if currentWebView.canGoForward {
+            forwardButton.isEnabled = true
+        } else {
+            forwardButton.isEnabled = false
+        }
+        
+        // back:
+        if currentWebView.canGoBack {
+            backButton.isEnabled = true
+        } else {
+            backButton.isEnabled = false
+        }
     }
     
     @IBAction func goBack(_ sender: UIBarButtonItem) {
-        currentWebView.goBack()
+        if errorView.isDescendant(of: webView) {
+            hideWebViewError()
+            // MARK: ???
+        } else {
+            currentWebView.goBack()
+        }
+        searchBar.text = currentWebView.url?.absoluteString
     }
     
     @IBAction func goForward(_ sender: UIBarButtonItem) {
         currentWebView.goForward()
+        hideWebViewError()
+        searchBar.text = currentWebView.url?.absoluteString
     }
     
     @IBAction func refresh(_ sender: UIBarButtonItem) {
