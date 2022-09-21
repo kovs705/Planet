@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TabsTBC: UITableViewController {
+    
+    var tabs = [Tab]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +31,7 @@ class TabsTBC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return tabs.count
     }
 
     /*

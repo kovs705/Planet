@@ -17,6 +17,7 @@
 		4E143FDD28C9362100B94EBF /* PlanetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E143FDC28C9362100B94EBF /* PlanetTests.swift */; };
 		4E143FE728C9362100B94EBF /* PlanetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E143FE628C9362100B94EBF /* PlanetUITests.swift */; };
 		4E143FE928C9362100B94EBF /* PlanetUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E143FE828C9362100B94EBF /* PlanetUITestsLaunchTests.swift */; };
+		4E9CAB3F28DBA9EC0033DDE1 /* PopulationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9CAB3E28DBA9EC0033DDE1 /* PopulationFunctions.swift */; };
 		4EAE2B1228CBB14200ED5770 /* TabsTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE2B1128CBB14200ED5770 /* TabsTBC.swift */; };
 		4EAE2B1428CBB16200ED5770 /* BookmarksTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE2B1328CBB16200ED5770 /* BookmarksTBC.swift */; };
 		4EAE2B1728CBB45F00ED5770 /* TabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE2B1628CBB45F00ED5770 /* TabCell.swift */; };
@@ -61,6 +62,7 @@
 		4E143FE228C9362100B94EBF /* PlanetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E143FE628C9362100B94EBF /* PlanetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetUITests.swift; sourceTree = "<group>"; };
 		4E143FE828C9362100B94EBF /* PlanetUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4E9CAB3E28DBA9EC0033DDE1 /* PopulationFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulationFunctions.swift; sourceTree = "<group>"; };
 		4EAE2B1128CBB14200ED5770 /* TabsTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsTBC.swift; sourceTree = "<group>"; };
 		4EAE2B1328CBB16200ED5770 /* BookmarksTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksTBC.swift; sourceTree = "<group>"; };
 		4EAE2B1628CBB45F00ED5770 /* TabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCell.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				4E143FC428C9361E00B94EBF /* SceneDelegate.swift */,
 				4EAE2B1528CBB17400ED5770 /* Views */,
 				4E143FC828C9361E00B94EBF /* Main.storyboard */,
+				4E9CAB3E28DBA9EC0033DDE1 /* PopulationFunctions.swift */,
 				4EFE6CB128DA308800D5F0B0 /* Model */,
 				4EAE2B1A28CBB48200ED5770 /* Cells */,
 				4E143FCE28C9362000B94EBF /* Assets.xcassets */,
@@ -456,6 +459,7 @@
 				4EAE2B1728CBB45F00ED5770 /* TabCell.swift in Sources */,
 				4EAE2B1928CBB47C00ED5770 /* BookmarkCell.swift in Sources */,
 				4E143FC328C9361E00B94EBF /* AppDelegate.swift in Sources */,
+				4E9CAB3F28DBA9EC0033DDE1 /* PopulationFunctions.swift in Sources */,
 				4EFE6CB028DA307F00D5F0B0 /* Bookmark.swift in Sources */,
 				4E143FC528C9361E00B94EBF /* SceneDelegate.swift in Sources */,
 				4EFE6CAE28DA2F0A00D5F0B0 /* Tab.swift in Sources */,

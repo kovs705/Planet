@@ -213,6 +213,17 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
         currentWebView.reload()
     }
     
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Tabs" {
+            let tabsVC = segue.destination as! TabsTBC
+            tabsVC.tabs = self.tabs
+        } else { // "Booksmarks"
+            let bookmarksVC = segue.destination as! BookmarksTBC
+            bookmarksVC.bookmarks = self.bookmarks
+        }
+    }
 
 }
 
