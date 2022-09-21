@@ -9,5 +9,17 @@ import Foundation
 import RealmSwift
 
 class Bookmark: Object {
+    dynamic var url: String = ""
+    dynamic var title: String = ""
     
+    override static func primaryKey() -> String? {
+        return "url"
+    }
+    
+    var bookmarkDescription: String {
+        let urlDesc = "URL: \(url)\n"
+        let titleDesc = "Title: \(title)\n"
+        
+        return "Bookmark information: \n\(urlDesc)\(titleDesc)\n"
+    }
 }

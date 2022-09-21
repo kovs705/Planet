@@ -11,6 +11,7 @@
 
 import UIKit
 import WebKit
+import RealmSwift
 
 class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegate {
     
@@ -25,6 +26,9 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
     var errorView = UIView()
     var errorLabel = UILabel()
     
+    var bookmarks = [Bookmark]()
+    var tabs = [Tab]()
+    var webViews = [WKWebView]()
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -34,6 +38,8 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
         configureWebView()
         configureWebViewError()
         
+        loadBookmarks()
+        loadTabs()
     }
     
     // MARK: - Configuration functions:
@@ -64,6 +70,24 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
         errorLabel.textAlignment = .center
         errorLabel.font = UIFont(name: "HelveticaNeue", size: 25)
         errorLabel.numberOfLines = 0
+    }
+    
+    func loadTabs() {
+        let realm = try! Realm()    // get the database
+        let results = realm.objects(Bookmark.self)
+        
+        for result in results {
+            bookmarks.append(result)
+        }
+    }
+    
+    func loadBookmarks() {
+        let realm = try! Realm()
+        let results = realm.objects(Tab.self)
+        
+        for result in results {
+            tabs.append(result)
+        }
     }
     
     // MARK: - WKWebView functions:
