@@ -15,7 +15,7 @@
             <objects>
                 <tableViewController title="Tabs" id="YfY-qP-ahp" customClass="TabsTBC" customModule="Planet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="eq5-Hu-IIZ">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
@@ -53,11 +53,7 @@
                             <outlet property="delegate" destination="YfY-qP-ahp" id="RNW-fO-Xqy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="tup-aa-P3A">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="1iN-d5-Zpl">
-                            <color key="tintColor" systemColor="labelColor"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="tup-aa-P3A"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwf-K3-7Lb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,7 +104,7 @@
                                     <barButtonItem image="book" catalog="system" style="plain" id="PLR-fe-CsC" userLabel="Bookmarks">
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <connections>
-                                            <segue destination="7GA-hg-iQd" kind="showDetail" identifier="bookmarks" id="6TT-0t-DAB"/>
+                                            <segue destination="7GA-hg-iQd" kind="showDetail" identifier="Bookmarks" id="6TT-0t-DAB"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="25" style="plain" systemItem="fixedSpace" id="ZaU-fs-NVv" userLabel="Spacer (fixed)">
@@ -151,7 +147,7 @@
                             </imageReference>
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
-                                <segue destination="YfY-qP-ahp" kind="show" identifier="tabs" id="nzd-8C-Px6"/>
+                                <segue destination="YfY-qP-ahp" kind="showDetail" identifier="Tabs" id="nzd-8C-Px6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

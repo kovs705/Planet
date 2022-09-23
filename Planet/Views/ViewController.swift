@@ -73,15 +73,6 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
     }
     
     func loadTabs() {
-        let realm = try! Realm()    // get the database
-        let results = realm.objects(Bookmark.self)
-        
-        for result in results {
-            bookmarks.append(result)
-        }
-    }
-    
-    func loadBookmarks() {
         let realm = try! Realm()
         let results = realm.objects(Tab.self)
         
@@ -90,12 +81,21 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
         }
     }
     
+    func loadBookmarks() {
+        let realm = try! Realm()
+        let results = realm.objects(Bookmark.self)
+        
+        for result in results {
+            bookmarks.append(result)
+        }
+    }
+    
     // MARK: - WKWebView functions:
     func loadWebsite(_ input: String, _ isUrlDomain: Bool) {
         var encodedURL: String = input
         if (isUrlDomain) {
             if encodedURL.starts(with: "http://") {
-                encodedURL = String(encodedURL.dropFirst(7))            // "deletes" this http://
+                encodedURL = String(encodedURL.dropFirst(7))  // "deletes" this http://
             }
             else if encodedURL.starts(with: "https://") {
                 encodedURL = String(encodedURL.dropFirst(8))

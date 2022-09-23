@@ -11,7 +11,6 @@
 		4E143FC528C9361E00B94EBF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E143FC428C9361E00B94EBF /* SceneDelegate.swift */; };
 		4E143FC728C9361E00B94EBF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E143FC628C9361E00B94EBF /* ViewController.swift */; };
 		4E143FCA28C9361E00B94EBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E143FC828C9361E00B94EBF /* Main.storyboard */; };
-		4E143FCD28C9361E00B94EBF /* Planet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E143FCB28C9361E00B94EBF /* Planet.xcdatamodeld */; };
 		4E143FCF28C9362000B94EBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E143FCE28C9362000B94EBF /* Assets.xcassets */; };
 		4E143FD228C9362000B94EBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E143FD028C9362000B94EBF /* LaunchScreen.storyboard */; };
 		4E143FDD28C9362100B94EBF /* PlanetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E143FDC28C9362100B94EBF /* PlanetTests.swift */; };
@@ -53,7 +52,6 @@
 		4E143FC428C9361E00B94EBF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4E143FC628C9361E00B94EBF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4E143FC928C9361E00B94EBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4E143FCC28C9361E00B94EBF /* Planet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Planet.xcdatamodel; sourceTree = "<group>"; };
 		4E143FCE28C9362000B94EBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E143FD128C9362000B94EBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E143FD328C9362000B94EBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 				4E143FCE28C9362000B94EBF /* Assets.xcassets */,
 				4E143FD028C9362000B94EBF /* LaunchScreen.storyboard */,
 				4E143FD328C9362000B94EBF /* Info.plist */,
-				4E143FCB28C9361E00B94EBF /* Planet.xcdatamodeld */,
 			);
 			path = Planet;
 			sourceTree = "<group>";
@@ -463,7 +460,6 @@
 				4EFE6CB028DA307F00D5F0B0 /* Bookmark.swift in Sources */,
 				4E143FC528C9361E00B94EBF /* SceneDelegate.swift in Sources */,
 				4EFE6CAE28DA2F0A00D5F0B0 /* Tab.swift in Sources */,
-				4E143FCD28C9361E00B94EBF /* Planet.xcdatamodeld in Sources */,
 				4EAE2B1428CBB16200ED5770 /* BookmarksTBC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -812,19 +808,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		4E143FCB28C9361E00B94EBF /* Planet.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				4E143FCC28C9361E00B94EBF /* Planet.xcdatamodel */,
-			);
-			currentVersion = 4E143FCC28C9361E00B94EBF /* Planet.xcdatamodel */;
-			path = Planet.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 4E143FB728C9361E00B94EBF /* Project object */;
 }

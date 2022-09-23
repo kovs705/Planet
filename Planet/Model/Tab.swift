@@ -11,9 +11,9 @@ import RealmSwift
 // MARK: - TAB MODEL
 
 class Tab: Object { // Object - Realm object
-    dynamic var url: String = ""
-    dynamic var initialURL: String = ""
-    dynamic var title: String = ""
+    @objc dynamic var url: String = ""
+    @objc dynamic var initialURL: String = ""
+    @objc dynamic var title: String = ""
     
     var tabDescription: String {
         let urlDesc = "URL: \(url)\n"
@@ -23,3 +23,4 @@ class Tab: Object { // Object - Realm object
         return "Tab information: \n\(urlDesc)\(initialURLDesc)\(titleDesc)\n"
     }
 }
+
