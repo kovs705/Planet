@@ -11,6 +11,8 @@ import RealmSwift
 class TabsTBC: UITableViewController {
     
     var tabs = [Tab]()
+    var delegate: ViewController!
+    var selectedTab: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,7 @@ class TabsTBC: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,15 +36,35 @@ class TabsTBC: UITableViewController {
         return tabs.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tab", for: indexPath) as! TabCell
+        
+        let tab = tabs[indexPath.row]
+        if tab.title.isEmpty {
+            cell.title.text = "New Tab"
+            cell.url.text = ""
+        } else {
+            cell.title.text = tab.title
+            cell.url.text = tab.url
+        }
+        
+        // check rows index with selected index:
+        if indexPath.row == selectedTab {
+            cell.layer.borderWidth = 1
+            cell.layer.borderColor = UIColor.green.cgColor
+        }
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row != selectedTab {
+            
+        }
+        navigationController?.popViewController(animated: true)
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.

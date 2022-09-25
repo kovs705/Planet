@@ -8,6 +8,9 @@
 import UIKit
 
 class BookmarkCell: UITableViewCell {
+    
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var url: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -44,6 +44,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="title" destination="4u5-Er-pV8" id="noV-oX-if0"/>
+                                            <outlet property="url" destination="7OU-hk-cs1" id="mzh-X7-iQe"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -76,10 +80,10 @@
                                 </scopeButtonTitles>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZ0-T8-cOd">
-                                <rect key="frame" x="0.0" y="147" width="390" height="619"/>
+                                <rect key="frame" x="0.0" y="147" width="390" height="614"/>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="omR-xS-r60" userLabel="TB">
-                                <rect key="frame" x="0.0" y="766" width="390" height="44"/>
+                                <rect key="frame" x="0.0" y="761" width="390" height="49"/>
                                 <items>
                                     <barButtonItem style="plain" id="lua-1h-bi9" userLabel="Back">
                                         <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large" renderingMode="template"/>
@@ -197,6 +201,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="title" destination="FsV-fO-Wfe" id="Mrq-ZS-39O"/>
+                                            <outlet property="url" destination="ev2-hn-St4" id="Lg2-6u-lyk"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>

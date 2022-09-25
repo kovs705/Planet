@@ -11,6 +11,7 @@ import RealmSwift
 class BookmarksTBC: UITableViewController {
     
     var bookmarks = [Bookmark]()
+    var delegate: ViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,15 +35,22 @@ class BookmarksTBC: UITableViewController {
         return bookmarks.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "bookmark", for: indexPath) as! BookmarkCell
+
+        let bookmark = bookmarks[indexPath.row]
+        cell.title.text = bookmark.title
+        cell.url.text = bookmark.url
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // do smth
+        navigationController?.popViewController(animated: true)
+    }
+
 
     /*
     // Override to support conditional editing of the table view.

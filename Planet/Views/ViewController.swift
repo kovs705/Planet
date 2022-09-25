@@ -159,6 +159,19 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
     
     // MARK: UISearchBar delegate
     
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        if let url = currentWebView.url?.absoluteString {
+            let realm = try! Realm()
+            let newBookmark = Bookmark(value: ["url": url, "title": currentWebView.title])
+            
+            try! realm.write {
+                realm.add(newBookmark, update: .modified)
+            }
+            
+            loadBookmarks()
+        }
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder() // hides keyboard
         
