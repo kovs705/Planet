@@ -58,6 +58,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="tup-aa-P3A"/>
+                    <connections>
+                        <outlet property="tabTable" destination="eq5-Hu-IIZ" id="PYm-na-EIh"/>
+                        <outlet property="tableView" destination="eq5-Hu-IIZ" id="lL0-Qk-TYJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwf-K3-7Lb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -126,10 +130,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="nZ0-T8-cOd" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="455-lU-SU9"/>
+                            <constraint firstItem="nZ0-T8-cOd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="455-lU-SU9"/>
                             <constraint firstItem="omR-xS-r60" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5hb-jR-XPS"/>
                             <constraint firstItem="AUP-gU-OZb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="64o-gO-anP"/>
-                            <constraint firstItem="nZ0-T8-cOd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9rX-fv-ae7"/>
+                            <constraint firstItem="nZ0-T8-cOd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9rX-fv-ae7"/>
                             <constraint firstItem="AUP-gU-OZb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JVS-Fz-u9H"/>
                             <constraint firstItem="AUP-gU-OZb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="JoQ-p9-XBu"/>
                             <constraint firstItem="omR-xS-r60" firstAttribute="top" secondItem="nZ0-T8-cOd" secondAttribute="bottom" id="Jpw-sZ-4JN"/>

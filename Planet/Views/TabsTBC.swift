@@ -13,14 +13,14 @@ class TabsTBC: UITableViewController {
     var tabs = [Tab]()
     var delegate: ViewController!
     var selectedTab: Int!
+    @IBOutlet var tabTable: UITableView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        tabTable.register(UINib(nibName: "TabTableViewCell", bundle: nil), forCellReuseIdentifier: "Tab")
+        
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
