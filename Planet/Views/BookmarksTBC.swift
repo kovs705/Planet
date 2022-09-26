@@ -37,7 +37,7 @@ class BookmarksTBC: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "bookmark", for: indexPath) as! BookmarkCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Bookmark", for: indexPath) as! BookmarkCell
 
         let bookmark = bookmarks[indexPath.row]
         cell.title.text = bookmark.title

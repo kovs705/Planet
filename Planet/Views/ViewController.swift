@@ -72,6 +72,7 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
         errorLabel.numberOfLines = 0
     }
     
+    // MARK: - Load functions
     func loadTabs() {
         let realm = try! Realm()
         let results = realm.objects(Tab.self)
@@ -84,6 +85,8 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
     func loadBookmarks() {
         let realm = try! Realm()
         let results = realm.objects(Bookmark.self)
+        
+        bookmarks.removeAll()
         
         for result in results {
             bookmarks.append(result)
@@ -166,6 +169,7 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
             
             try! realm.write {
                 realm.add(newBookmark, update: .modified)
+                print("added new bookmark")
             }
             
             loadBookmarks()

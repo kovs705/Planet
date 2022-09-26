@@ -38,9 +38,10 @@ class TabsTBC: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tab", for: indexPath) as! TabCell
-        
         let tab = tabs[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Tab", for: indexPath) as! TabTableViewCell
+    
         if tab.title.isEmpty {
             cell.title.text = "New Tab"
             cell.url.text = ""
