@@ -44,10 +44,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="title" destination="4u5-Er-pV8" id="noV-oX-if0"/>
-                                            <outlet property="url" destination="7OU-hk-cs1" id="mzh-X7-iQe"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -195,10 +191,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="title" destination="FsV-fO-Wfe" id="Mrq-ZS-39O"/>
-                                            <outlet property="url" destination="ev2-hn-St4" id="Lg2-6u-lyk"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -209,6 +201,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="tcy-UJ-rAb"/>
+                    <connections>
+                        <outlet property="bookmarkTable" destination="l5n-Nv-UOQ" id="3BS-i8-67t"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YSz-CB-24a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -228,7 +223,7 @@
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="n7k-bn-sbA">
                         <rect key="frame" x="0.0" y="761" width="390" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <toolbarAppearance key="standardAppearance"/>
+                        <toolbarAppearance key="standardAppearance" backgroundEffect="regular"/>
                     </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Uvz-uK-lLP"/>

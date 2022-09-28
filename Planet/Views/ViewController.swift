@@ -22,8 +22,6 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
     
-    @IBOutlet weak var toolB: UIToolbar!
-    
     var currentWebView: WKWebView!
     var errorView = UIView()
     var errorLabel = UILabel()

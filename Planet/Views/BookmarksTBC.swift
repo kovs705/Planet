@@ -12,10 +12,14 @@ class BookmarksTBC: UITableViewController {
     
     var bookmarks = [Bookmark]()
     var delegate: ViewController!
-
+    @IBOutlet var bookmarkTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        bookmarkTable.register(UINib(nibName: "BookmarkTableViewCell", bundle: nil), forCellReuseIdentifier: "Bookmark")
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -37,7 +41,7 @@ class BookmarksTBC: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Bookmark", for: indexPath) as! BookmarkCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Bookmark", for: indexPath) as! BookmarkTableViewCell
 
         let bookmark = bookmarks[indexPath.row]
         cell.title.text = bookmark.title

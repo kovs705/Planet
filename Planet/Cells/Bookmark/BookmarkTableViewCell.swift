@@ -1,17 +1,19 @@
 //
-//  TabCell.swift
+//  BookmarkTableViewCell.swift
 //  Planet
 //
-//  Created by Kovs on 09.09.2022.
+//  Created by Kovs on 29.09.2022.
 //
 
 import UIKit
+import RealmSwift
 
-class TabCell: UITableViewCell {
+class BookmarkTableViewCell: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var url: UILabel!
-
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,5 +24,11 @@ class TabCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        title.text = nil
+        url.text = nil
+    }
+    
 }
