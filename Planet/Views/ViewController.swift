@@ -22,6 +22,8 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
     
+    @IBOutlet weak var toolB: UIToolbar!
+    
     var currentWebView: WKWebView!
     var errorView = UIView()
     var errorLabel = UILabel()
@@ -38,6 +40,8 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
         configureWebView()
         configureWebViewError()
         
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
         loadBookmarks()
         loadTabs()
     }
@@ -50,7 +54,7 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
     
     func configureWebView() {
         let webConfig = WKWebViewConfiguration()
-        let frame = CGRect(x: 0, y: 0, width: webView.frame.width, height: webView.frame.height)
+        let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: webView.frame.height)
         
         currentWebView = WKWebView(frame: frame, configuration: webConfig)
         currentWebView.navigationDelegate = self
@@ -155,10 +159,10 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
         updateNavigationToolbarButtons()
     }
     
-    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-        let cred = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-        completionHandler(.useCredential, cred)
-    }
+//    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+//        let cred = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+//        completionHandler(.useCredential, cred)
+//    }
     
     // MARK: UISearchBar delegate
     

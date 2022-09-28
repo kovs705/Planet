@@ -60,7 +60,6 @@
                     <navigationItem key="navigationItem" id="tup-aa-P3A"/>
                     <connections>
                         <outlet property="tabTable" destination="eq5-Hu-IIZ" id="PYm-na-EIh"/>
-                        <outlet property="tableView" destination="eq5-Hu-IIZ" id="lL0-Qk-TYJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwf-K3-7Lb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -72,79 +71,69 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Planet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" showsBookmarkButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AUP-gU-OZb" userLabel="SB">
                                 <rect key="frame" x="10" y="91" width="370" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL"/>
                                 <scopeButtonTitles>
                                     <string>Title</string>
                                     <string>Title</string>
                                 </scopeButtonTitles>
                             </searchBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZ0-T8-cOd">
+                            <view contentMode="center" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZ0-T8-cOd">
                                 <rect key="frame" x="0.0" y="147" width="390" height="614"/>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="omR-xS-r60" userLabel="TB">
-                                <rect key="frame" x="0.0" y="761" width="390" height="49"/>
-                                <items>
-                                    <barButtonItem style="plain" id="lua-1h-bi9" userLabel="Back">
-                                        <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large" renderingMode="template"/>
-                                        <color key="tintColor" systemColor="labelColor"/>
-                                        <connections>
-                                            <action selector="goBack:" destination="BYZ-38-t0r" id="wVc-u8-5vt"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="25" style="plain" systemItem="fixedSpace" id="S9x-z0-ZnG" userLabel="Spacer (fixed)">
-                                        <color key="tintColor" systemColor="labelColor"/>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" id="vux-h3-AuX" userLabel="Forward">
-                                        <imageReference key="image" image="chevron.forward" catalog="system" symbolScale="large" renderingMode="template"/>
-                                        <color key="tintColor" systemColor="labelColor"/>
-                                        <connections>
-                                            <action selector="goForward:" destination="BYZ-38-t0r" id="lR1-l4-Ccs"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="jQt-bc-Zx6" userLabel="Spacer (flexible)">
-                                        <color key="tintColor" systemColor="labelColor"/>
-                                    </barButtonItem>
-                                    <barButtonItem image="book" catalog="system" style="plain" id="PLR-fe-CsC" userLabel="Bookmarks">
-                                        <color key="tintColor" systemColor="labelColor"/>
-                                        <connections>
-                                            <segue destination="7GA-hg-iQd" kind="showDetail" identifier="Bookmarks" id="6TT-0t-DAB"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="25" style="plain" systemItem="fixedSpace" id="ZaU-fs-NVv" userLabel="Spacer (fixed)">
-                                        <color key="tintColor" systemColor="labelColor"/>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="refresh" id="7KQ-dA-ucp" userLabel="Refresh">
-                                        <color key="tintColor" systemColor="labelColor"/>
-                                        <connections>
-                                            <action selector="refresh:" destination="BYZ-38-t0r" id="eHZ-er-apI"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="nZ0-T8-cOd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="455-lU-SU9"/>
-                            <constraint firstItem="omR-xS-r60" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5hb-jR-XPS"/>
-                            <constraint firstItem="AUP-gU-OZb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="64o-gO-anP"/>
-                            <constraint firstItem="nZ0-T8-cOd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9rX-fv-ae7"/>
+                            <constraint firstAttribute="bottom" secondItem="nZ0-T8-cOd" secondAttribute="bottom" id="2vg-jd-LaJ"/>
                             <constraint firstItem="AUP-gU-OZb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JVS-Fz-u9H"/>
                             <constraint firstItem="AUP-gU-OZb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="JoQ-p9-XBu"/>
-                            <constraint firstItem="omR-xS-r60" firstAttribute="top" secondItem="nZ0-T8-cOd" secondAttribute="bottom" id="Jpw-sZ-4JN"/>
-                            <constraint firstItem="omR-xS-r60" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="cAE-EY-G0P"/>
-                            <constraint firstItem="omR-xS-r60" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="hXi-AQ-NI3"/>
+                            <constraint firstItem="nZ0-T8-cOd" firstAttribute="top" secondItem="AUP-gU-OZb" secondAttribute="bottom" id="Plz-Xb-3sv"/>
+                            <constraint firstItem="nZ0-T8-cOd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aGh-pf-MWI"/>
+                            <constraint firstItem="nZ0-T8-cOd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="asu-s5-J7N"/>
                             <constraint firstItem="AUP-gU-OZb" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" constant="-10" id="iXy-OP-ExK"/>
-                            <constraint firstItem="omR-xS-r60" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="o2h-n5-3Qy"/>
-                            <constraint firstItem="nZ0-T8-cOd" firstAttribute="top" secondItem="AUP-gU-OZb" secondAttribute="bottom" id="qA2-hs-m1A"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Planet browser" id="rR2-6a-dci">
+                    <toolbarItems>
+                        <barButtonItem title="Item" image="chevron.left" catalog="system" style="plain" id="lua-1h-bi9" userLabel="Back">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="goBack:" destination="BYZ-38-t0r" id="wVc-u8-5vt"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="25" style="plain" systemItem="fixedSpace" id="S9x-z0-ZnG" userLabel="Spacer (fixed)">
+                            <color key="tintColor" systemColor="labelColor"/>
+                        </barButtonItem>
+                        <barButtonItem title="Item" image="chevron.right" catalog="system" style="plain" id="vux-h3-AuX" userLabel="Forward">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="goForward:" destination="BYZ-38-t0r" id="lR1-l4-Ccs"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="jQt-bc-Zx6" userLabel="Spacer (flexible)">
+                            <color key="tintColor" systemColor="labelColor"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="bookmarks" id="PLR-fe-CsC" userLabel="Bookmarks">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <segue destination="7GA-hg-iQd" kind="showDetail" identifier="Bookmarks" id="6TT-0t-DAB"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="25" style="plain" systemItem="fixedSpace" id="ZaU-fs-NVv" userLabel="Spacer (fixed)">
+                            <color key="tintColor" systemColor="labelColor"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="refresh" id="7KQ-dA-ucp" userLabel="Refresh">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="refresh:" destination="BYZ-38-t0r" id="eHZ-er-apI"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Planet browser" largeTitleDisplayMode="never" id="rR2-6a-dci">
                         <barButtonItem key="rightBarButtonItem" id="hZs-Kf-5KK" userLabel="Tabs">
                             <imageReference key="image" image="rectangle.on.rectangle" catalog="system" symbolScale="large" renderingMode="hierarchical-single">
                                 <hierarchicalColors>
@@ -159,6 +148,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
                         <outlet property="backButton" destination="lua-1h-bi9" id="atU-nE-AIx"/>
                         <outlet property="forwardButton" destination="vux-h3-AuX" id="6Lq-Am-jKF"/>
@@ -169,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="84"/>
+            <point key="canvasLocation" x="50.769230769230766" y="83.886255924170612"/>
         </scene>
         <!--Bookmarks-->
         <scene sceneID="44B-ie-iCl">
@@ -227,13 +217,19 @@
         <!--Navigation Controller-->
         <scene sceneID="VfZ-zz-w4r">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9yx-vh-ne0" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="9yx-vh-ne0" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fRV-h2-AbY">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="n7k-bn-sbA">
+                        <rect key="frame" x="0.0" y="761" width="390" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <toolbarAppearance key="standardAppearance"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Uvz-uK-lLP"/>
                     </connections>
@@ -244,9 +240,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="book" catalog="system" width="128" height="99"/>
-        <image name="chevron.backward" catalog="system" width="97" height="128"/>
-        <image name="chevron.forward" catalog="system" width="97" height="128"/>
+        <image name="chevron.left" catalog="system" width="97" height="128"/>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="rectangle.on.rectangle" catalog="system" width="128" height="98"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
