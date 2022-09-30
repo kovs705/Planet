@@ -30,18 +30,21 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
     var tabs = [Tab]()
     var webViews = [WKWebView]()
     
+    var selectedTab: Int!
+    
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureSearchBar()
-        configureWebView()
-        configureWebViewError()
-        
-        navigationController?.navigationBar.prefersLargeTitles = false
-        
         loadBookmarks()
         loadTabs()
+        
+        configureSearchBar()
+        configureWebViewError()
+        
+        loadWebView()
+        
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     // MARK: - Configuration functions:
@@ -50,13 +53,13 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
         searchBar.autocapitalizationType = .none
     }
     
-    func configureWebView() {
+    func configureWebView() -> WKWebView {
         let webConfig = WKWebViewConfiguration()
         let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: webView.frame.height)
         
-        currentWebView = WKWebView(frame: frame, configuration: webConfig)
-        currentWebView.navigationDelegate = self
-        webView.addSubview(currentWebView)
+        let webView = WKWebView(frame: frame, configuration: webConfig)
+        webView.navigationDelegate = self
+        return webView
     }
     
     func configureWebViewError() {
@@ -80,8 +83,35 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
         let results = realm.objects(Tab.self)
         
         for result in results {
+            webViews.append(configureWebView())
             tabs.append(result)
         }
+        
+        selectedTab = 0
+    }
+    
+    func addTab(_ tab: Tab) {
+        tabs.append(tab)
+        if selectedTab != 0 {
+            selectedTab = tabs.count - 1
+        } else {
+            selectedTab = 0
+        }
+        webViews.append(configureWebView())
+        loadWebView()
+    }
+    
+    func loadWebView() {
+        currentWebView?.removeFromSuperview()
+        currentWebView = webViews[selectedTab]
+        webView.addSubview(currentWebView)
+        
+        if currentWebView.url == nil && !tabs[selectedTab].url.isEmpty {
+            loadWebsite(tabs[selectedTab].url, true, true)
+        } else {
+            searchBar.text = currentWebView.url?.absoluteString
+        }
+        updateNavigationToolbarButtons()
     }
     
     func loadBookmarks() {
@@ -96,20 +126,23 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
     }
     
     // MARK: - WKWebView functions:
-    func loadWebsite(_ input: String, _ isUrlDomain: Bool) {
+    func loadWebsite(_ input: String, _ isUrlDomain: Bool, _ isURLPreprocessed: Bool) {
         var encodedURL: String = input
-        if (isUrlDomain) {
-            if encodedURL.starts(with: "http://") {
-                encodedURL = String(encodedURL.dropFirst(7))  // "deletes" this http://
+        
+        if !isURLPreprocessed {
+            if (isUrlDomain) {
+                if encodedURL.starts(with: "http://") {
+                    encodedURL = String(encodedURL.dropFirst(7))  // "deletes" this http://
+                }
+                else if encodedURL.starts(with: "https://") {
+                    encodedURL = String(encodedURL.dropFirst(8))
+                }
+                
+                encodedURL = "https://" + encodedURL.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+                
+            } else {
+                encodedURL = "https://www.google.com/search?dcr=0&q=" + encodedURL.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
             }
-            else if encodedURL.starts(with: "https://") {
-                encodedURL = String(encodedURL.dropFirst(8))
-            }
-            
-            encodedURL = "https://" + encodedURL.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-            
-        } else {
-            encodedURL = "https://www.google.com/search?dcr=0&q=" + encodedURL.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         }
         
         // actual URL request
@@ -120,6 +153,12 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
         currentWebView.load(urlRequest)
         hideWebViewError()
         searchBar.text = encodedURL.lowercased()
+        
+        let tab: Tab = tabs[selectedTab]
+        let realm = try! Realm()
+        try! realm.write {
+            tab.initialURL = encodedURL.lowercased()
+        }
     }
     
     // MARK: - WebView errors
@@ -143,8 +182,14 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         // last part of loading the request:
         print("Finished")
-        
         updateNavigationToolbarButtons()
+        
+        let tab = tabs[selectedTab]
+        let realm = try! Realm()
+        try! realm.write {
+            tab.title = currentWebView.title!
+            tab.url = (currentWebView.url?.absoluteString)!
+        }
     }
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
@@ -185,9 +230,9 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
         if (!input.isEmpty) { // if input of the searchBar isn't empty
             if input.hasSuffix(".com") || input.hasSuffix(".com/") || input.hasSuffix(".tv") || input.hasSuffix(".tv/") {
                 // if input has some of these suffixes:
-                loadWebsite(input, true)
+                loadWebsite(input, true, false)
             } else {
-                loadWebsite(input, false)
+                loadWebsite(input, false, false)
             }
         }
     }
@@ -215,7 +260,6 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
     @IBAction func goBack(_ sender: UIBarButtonItem) {
         if errorView.isDescendant(of: webView) {
             hideWebViewError()
-            // MARK: ???
         } else {
             currentWebView.goBack()
         }
@@ -238,6 +282,8 @@ class ViewController: UIViewController, WKNavigationDelegate, UISearchBarDelegat
         if segue.identifier == "Tabs" {
             let tabsVC = segue.destination as! TabsTBC
             tabsVC.tabs = self.tabs
+            tabsVC.delegate = self
+            tabsVC.selectedTab = selectedTab
         } else { // "Booksmarks"
             let bookmarksVC = segue.destination as! BookmarksTBC
             bookmarksVC.bookmarks = self.bookmarks

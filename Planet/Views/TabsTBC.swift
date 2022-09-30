@@ -23,9 +23,25 @@ class TabsTBC: UITableViewController {
         
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    
+    @IBAction func addTab(_ sender: UIBarButtonItem) {
+        let realm = try! Realm()
+        let newTab: Tab = Tab()
+        
+        try! realm.write {
+            realm.add(newTab)
+        }
+        tabs.append(newTab)
+        selectedTab = tabs.count - 1
+        tabTable.reloadData()
+        
+        delegate.addTab(newTab)
+        navigationController?.popViewController(animated: true)
+    }
+    
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -61,7 +77,8 @@ class TabsTBC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row != selectedTab {
-            
+            delegate.selectedTab = indexPath.row
+            delegate.loadWebView()
         }
         navigationController?.popViewController(animated: true)
     }

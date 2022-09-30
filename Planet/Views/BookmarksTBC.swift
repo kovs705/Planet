@@ -51,7 +51,9 @@ class BookmarksTBC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // do smth
+        // load website:
+        delegate.loadWebsite(bookmarks[indexPath.row].url, true, true)
+        // close the vc
         navigationController?.popViewController(animated: true)
     }
 
